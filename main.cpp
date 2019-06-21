@@ -1,3 +1,21 @@
+/*
+ * This file is part of Passcrack, an MD5 password cracker.
+ * Copyright (C) 2019   fantoro
+ *
+ * Passcrack is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the license, or
+ * (at your option) any later version.
+ *
+ * Passcrack is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Passcrack. If not, see <https://www.gnu.org/license/>
+*/
+
 #include <iostream>
 #include <string>
 #include <sys/stat.h>
@@ -15,7 +33,14 @@ int main(int argc, char* argv[]){
 		std::cout << std::endl
 			  << " ==== [ " << argv[0] << " help ] ==== " << std::endl
 			  << " Usage:\n " << argv[0] << " [MD5HASH] [PASSWORD1... [PASSWORDN]]\n " << argv[0] << " [MD5HASH] [DICTIONARYFILE]" << std::endl << std::endl
-			  << " Examples:\n " << argv[0] << " e10adc3949ba59abbe56e057f20f883e 1234 4321 123 321 1337 123456 test password password1 password2 password3 password123 password123321\n " << argv[0] << " e10adc3949ba59abbe56e057f20f883e ./passwords.txt" << std::endl;
+			  << " Examples:\n " << argv[0] << " e10adc3949ba59abbe56e057f20f883e 1234 4321 123 321 1337 123456 test password password1 password2 password3 password123 password123321\n " << argv[0] << " e10adc3949ba59abbe56e057f20f883e ./passwords.txt" << std::endl
+			  << "\n Passcrack   Copyright (C) 2019   fantoro" << std::endl
+			  << " This program comes with ABSOLUTELY NO WARRANTY; This is free" << std::endl
+			  << " software, and you are welcome to redistribute it under certain" << std::endl
+			  << " conditions; refer to the GNU General Public License 3 included" << std::endl
+			  << " with your copy of this software for details, if you haven't" << std::endl
+			  << " received a copy of the GNU General Public License 3 with your" << std::endl
+			  << " copy of this software, see <https://www.gnu.org/license/>" << std::endl;
 		return 1;
 	}
 	bool argPws = true;
