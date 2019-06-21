@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Passcrack. If not, see <https://www.gnu.org/license/>
+ * along with Passcrack. If not, see <https://www.gnu.org/licenses/>
 */
 
 #include <iostream>
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
 			  << " conditions; refer to the GNU General Public License 3 included" << std::endl
 			  << " with your copy of this software for details, if you haven't" << std::endl
 			  << " received a copy of the GNU General Public License 3 with your" << std::endl
-			  << " copy of this software, see <https://www.gnu.org/license/>" << std::endl;
+			  << " copy of this software, see <https://www.gnu.org/licenses/>" << std::endl;
 		return 1;
 	}
 	bool argPws = true;
