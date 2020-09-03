@@ -1,5 +1,5 @@
 /*
- * This file is part of Passcrack, an MD5 password cracker.
+ * This file is part of Passcrack, a password cracker.
  * Copyright (C) 2019   fantoro
  *
  * Passcrack is free software: you can redistribute it and/or modify
