@@ -17,9 +17,6 @@
 */
 #include "passlist.h"
 #include <iostream>
-#include <openssl/md5.h>
-#include <sstream>
-#include <iomanip>
 
 Passlist::Passlist(){
 	this->preHashed = false;
@@ -70,16 +67,6 @@ std::string* Passlist::getHashedPasswords(bool preHash){
 	return this->hPasswords;
 }
 
-std::string Passlist::md5Hash(std::string msg){
-	unsigned char res[MD5_DIGEST_LENGTH];
-	MD5((unsigned char*)msg.c_str(),msg.size(),res);
-	std::stringstream sstream;
-	for(int i=0;i<MD5_DIGEST_LENGTH;i++){
-		sstream << std::hex << std::setfill('0') << std::setw(2) << (int)res[i] << std::dec;
-	}
-	return sstream.str();
-}
-
 void Passlist::preHash(){
 	if(this->passesLoaded == false) throw 1;
 	if(this->preHashed) return;
@@ -89,7 +76,7 @@ void Passlist::preHash(){
 	this->hPasswords = new std::string[this->pwsArrSize];
 	this->prevPreHashed = true;
 	for(int i = 0; (size_t)i < pwsArrSize; i++){
-		(this->hPasswords)[i] = md5Hash((this->passwords)[i]);
+		(this->hPasswords)[i] = hashMsg((this->passwords)[i]);
 	}
 	this->preHashed = true;
 }

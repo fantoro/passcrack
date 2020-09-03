@@ -15,3 +15,20 @@
  * You should have received a copy of the GNU General Public License
  * along with Passcrack. If not, see <https://www.gnu.org/license/>
 */
+
+#include "md5.h"
+#include <openssl/md5.h>
+#include <string>
+
+std::string Md5List::hashMsg(std::string msg){
+	unsigned char res[MD5_DIGEST_LENGTH];
+	MD5((unsigned char*)msg.c_str(),msg.size(),res);
+	std::stringstream sstream;
+	for(int i=0;i<MD5_DIGEST_LENGTH;i++){
+		sstream << std::hex << std::setfill('0') << std::setw(2) << (int)res[i] << std::dec;
+	}
+	return sstream.str();
+}
+
+Md5List::Md5List(std::string passwords[], size_t arrSize)
+		: Passlist::Passlist(passwords, arrSize) {}

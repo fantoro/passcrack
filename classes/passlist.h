@@ -57,8 +57,9 @@ private:
 	std::string* passwords;
 	std::string* hPasswords;
 
-	// Calculate the MD5 hash
-	std::string md5Hash(std::string msg);
+protected:
+	// Calculate the hash
+	virtual std::string hashMsg(std::string msg) = 0;
 };
 
 #endif // PASSLIST_H

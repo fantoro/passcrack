@@ -22,7 +22,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <fstream>
-#include "classes/passlist.h"
+#include "classes/passlist/md5.h"
 #include "classes/cracker.h"
 
 std::string *passwords, result;
@@ -74,15 +74,16 @@ int main(int argc, char* argv[]){
 		}
 	}
 	Cracker cracker(argv[1]);
-	Passlist pwlist(passwords, passwordsSize);
+	Passlist *pwlist = new Md5List(passwords, passwordsSize);
 	delete [] passwords;
-	pwlist.preHash();
-	cracker.setDictionaryPtr(&pwlist);
+	pwlist->preHash();
+	cracker.setDictionaryPtr(pwlist);
 	bool success = cracker.crack(&result);
 	if(!success){
 		std::cout << "Couldn't find a matching password with the provided dictionary" << std::endl;
 		return 1;
 	}
 	std::cout << "Found a matching password: \"" << result << "\"" << std::endl;
+	delete pwlist;
 	return 0;
 }

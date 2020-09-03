@@ -18,4 +18,16 @@
 #ifndef MD5_H
 #define MD5_H
 
+#include "../passlist.h"
+#include <string>
+#include <sstream>
+#include <iomanip>
+
+class Md5List: public Passlist {
+public:
+		Md5List(std::string passwords[], size_t arrSize);
+private:
+		std::string hashMsg(std::string msg);
+};
+
 #endif
