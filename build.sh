@@ -1,3 +1,2 @@
-#!/usr/bin/bash
-cd /home/fantoro/cpp/passcrack
-g++ main.cpp -lcrypto -ggdb -o passcrack classes/*.cpp
+#!/bin/bash
+g++ -lcrypto -ggdb -o passcrack main.cpp classes/*.cpp
